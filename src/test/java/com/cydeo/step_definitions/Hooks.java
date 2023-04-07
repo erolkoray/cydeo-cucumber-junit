@@ -18,7 +18,7 @@ public class Hooks {
     }
 
     @Before (value = "@login", order = 1)
-    public void stupScenarioForLogins(){
+    public void setupScenarioForLogins(){
         System.out.println("this will only apply to scenarios with @login tag");
     }
 
@@ -30,10 +30,12 @@ public class Hooks {
 
     @After
     public void teardownScenario(Scenario scenario){
+        //scenario.isFailed() - if scenario fails this method will return boolean value TRUE
+        if(scenario.isFailed()) {
 
-        byte [] screenshot = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-        scenario.attach(screenshot, "image/png", scenario.getName());
-
+            byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", scenario.getName());
+        }
 
 
         Driver.closeDriver();
