@@ -1,3 +1,7 @@
+HOOKS - https://cucumber.io/docs/cucumber/api/?lang=java#hooks
+BACKGROUND - https://cucumber.io/docs/gherkin/reference/#background
+
+
 Today's schedule:
     - Tell me about your framework
     - Practice solutions
@@ -120,9 +124,10 @@ Today's schedule:
     - glue         : glue gives path to the package of the step_definitions
     - dryrun    : dryRun determines if we want to execute the step_definitions or not
         - if dryRun is true: dryRun is turned on, and step definitions are turned off (will not run)
-        - if dryRUn is false: dryRun is turned off, and step defitions are turned on (will run)
+        - if dryRUn is false: dryRun is turned off, and step definitions are turned on (will run)
 
-        - this is mostly used for when implementing new steps and step defitions, and we do not want to run the code and open browser etc, just to get the snippets.
+        - this is mostly used for when implementing new steps and step definitions,
+        and we do not want to run the code and open browser etc, just to get the snippets.
         - we turn off the step_definitions and just generate snippets
 
     - tags:
