@@ -44,12 +44,12 @@ public class Hooks {
        // System.out.println("=====Scenario ended / take screenshot if failed ======");
     }
 
-    @BeforeStep
+  //  @BeforeStep
     public void setupStep(){
         System.out.println("-----------> applying setup using @BeforeStep <--------------");
     }
 
-    @AfterStep
+   // @AfterStep
     public void afterStep(){
         System.out.println("--------------> Applying tearDown using @AfterStep <-----------");
     }
