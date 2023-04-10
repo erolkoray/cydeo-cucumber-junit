@@ -32,4 +32,13 @@ public class WebTable_StepDefinitions {
     public void user_should_see_url_contains_orders() {
         BrowserUtils.verifyTitleContains("orders");
     }
+
+    @When("user enters username {string} password {string} and logins")
+    public void userEntersUsernamePasswordAndLogins(String username, String password) {
+
+        webTableLoginPage.inputUsername.sendKeys(username);
+        webTableLoginPage.inputPassword.sendKeys(password);
+        webTableLoginPage.loginButton.click();
+
+    }
 }
