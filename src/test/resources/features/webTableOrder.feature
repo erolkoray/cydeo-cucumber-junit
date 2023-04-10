@@ -35,11 +35,11 @@ Feature: Web table user order feature
     @femaleScientists
     Examples: Famous female scientists
       | productType | quantity | customerName       | street    | city   | State   | Zipcode | cardType | cardNumber      | expDate | expectedName       |
-      | MoneyCog    | 2        | Marie Curie        | London St | London | England | 50505   | Visa     | 111122233455666 | 12/24   | Marie Curie        |
+      | MoneyCog    | 2        | INVALID NAME       | London St | London | England | 50505   | Visa     | 111122233455666 | 12/24   | Marie Curie        |
       | Familybea   | 3        | Rosalind Franklin  | London St | London | England | 50505   | Visa     | 111122233455666 | 12/24   | Rosalind Franklin  |
       | Screenable  | 4        | Chien-Shiung Wu    | London St | London | England | 50505   | Visa     | 111122233455666 | 12/24   | Chien-Shiung Wu    |
       | MoneyCog    | 5        | Barbara McClintock | London St | London | England | 50505   | Visa     | 111122233455666 | 12/24   | Barbara McClintock |
-      | MoneyCog    | 6        | List Meitner       | London St | London | England | 50505   | Visa     | 111122233455666 | 12/24   | List Meitner       |
+      | MoneyCog    | 6        | INVALID NAME       | London St | London | England | 50505   | Visa     | 111122233455666 | 12/24   | List Meitner       |
 
     @maleScientists
     Examples: Famous male scientists
