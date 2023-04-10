@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class OrderPage {
 
     public OrderPage(){
@@ -28,11 +30,12 @@ public class OrderPage {
     @FindBy(name = "zip")
     public WebElement inputZip;
 
-    /* @FindBy(name = "a")
-    public WebElement input;
-    @FindBy(name = "a")
-    public WebElement input1;
+    @FindBy(name = "card")
+    public List<WebElement> cardType;
 
-     */
+    @FindBy(name = "a")
+    public WebElement cardNumber;
+
+
 }
 
