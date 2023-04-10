@@ -16,50 +16,50 @@ public class Driver {
     // We make WebDriver private, because we want to close access from outside the class
     // We make it static because we will use it in a static method (and it will run before everything else too)
 
-    private static WebDriver driver;
+    private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
 
     // Create a reusable utility method which will return same driver instance when we call it
     public static WebDriver getDriver(){
-        if(driver == null){
+        if(driverPool.get() == null){
             // We read our browserType from our configuration.properties. This way we can control which browser is opened from outside our code, from configuration.properties
             String browserType = ConfigurationReader.getProperty("browser");
             switch (browserType) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    driverPool.set(new ChromeDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    driverPool.set(new FirefoxDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
                 case "safari":
                     WebDriverManager.safaridriver().setup();
-                    driver = new SafariDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    driverPool.set(new SafariDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
                 case "edge":
                     WebDriverManager.edgedriver().setup();
-                    driver = new EdgeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    driverPool.set(new EdgeDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
             }
 
         }
-        return driver;
+        return driverPool.get();
     }
 
 
     // This method will make sure our driver value is always null after using quit() method
     public static void closeDriver(){
-        if(driver != null){
-            driver.quit(); // this line will terminate the existing session. driver will have absolutely NO value
-            driver = null;
+        if(driverPool.get() != null){
+            driverPool.get().quit(); // this line will terminate the existing session. driver will have absolutely NO value
+            driverPool.remove();
         }
 
     }
