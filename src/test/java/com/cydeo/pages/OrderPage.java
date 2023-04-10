@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class OrderPage {
+public class OrderPage extends BasePage {
 
     public OrderPage(){
         PageFactory.initElements(Driver.getDriver(), this);
@@ -33,8 +33,16 @@ public class OrderPage {
     @FindBy(name = "card")
     public List<WebElement> cardType;
 
-    @FindBy(name = "a")
+    @FindBy(name = "cardNo")
     public WebElement cardNumber;
+
+    @FindBy(xpath = "//input[@name=\"cardExp\"]")
+    public WebElement cardExpInput;
+
+    @FindBy(css = "button[type=\"submit\"]")
+    public WebElement processOrderButton;
+    
+    
 
 
 }
