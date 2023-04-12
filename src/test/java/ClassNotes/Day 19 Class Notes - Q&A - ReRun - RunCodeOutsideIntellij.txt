@@ -323,7 +323,7 @@ tell me about your framework
 - loading the file to properties class object.
 - I implement BDD approach to simplify reading and understanding my framework for the non-technical teammates in my team.
 - I write my test cases as if they are scenarios from the end users perspective in Gherkin language in my feature files.
-- Gherkin is very similar to English. THerefore it is easy to understand for non-technical teammates.
+- Gherkin is very similar to English. Therefore it is easy to understand for non-technical teammates.
 - I implemented the actual coding logic with JAVA-SELENIUM-JUNIT... inside of my step_definitions package and it their own respective/related classes
 - I trigger my framework from my runner class.
 - Runner class allows me to run different types of testing suites that I created with my tags, such as smoke, regression, mini-regression.
