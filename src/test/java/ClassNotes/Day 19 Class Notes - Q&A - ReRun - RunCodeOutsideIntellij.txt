@@ -253,16 +253,22 @@ How do you locate dropdowns?
 How do you handle pop ups?
 How do you locate your dynamic web elements?
 How do you use javascript in your framework?
+- we need to downcast our xxx to javascript
 How do you use Java while you are writing test scenarios?
 What is the difference between keyword driven and data driven testing?
-
+-   Keyword driven testing: We create specific keywords for specific tests cases, so when you use a keyword it will only run that test.
+    Data driven: running the same test case against different test data
 Can you explain how you set up parallel testing?
-#1
-#2
+#1 we added Maven surefire plugin
+#2 we adjusted our Driver Singleton logic to be able to handle multiple threads
 
 What is the differences between @findby and pageFactory?
+Both used in Page Object Model (POM) design pattern
+-@findby: we use this instead of findElement method to be able to use pageFactory
+ pageFactory: we use the initialise our driver and object of the class
 
 What is the main goal of the Singleton Design pattern?
+-to return the same driver instance and avoid null pointer exceptions
 
 Can you explain the mentality of the POM?
 
@@ -270,12 +276,20 @@ Which version of Selenium do you use?
     selenium version 3.141.59
 
 How do you use single slash (/) while you are finding locators?
+- if you use the single slash(/) in the beginning you create an absolute xpath
+- single slash(/) at the end goes from parent to child
+- single slash .. (/..) goes to the parent child
 
 What is the difference between CSS and Xpath?
+-Xpath has more functionality (we can go child to parent, we can use text etc)
+-CSS is faster
+
 
 How do you prioritise your scenarios?
+- by using @tags
 
 How do you run your failed runner/tests?
+- FailedTestRunner class
 
 How do you use external data? Can you explain step by step?
     - configuration.properties --> ConfigurationReader
@@ -283,6 +297,8 @@ How do you use external data? Can you explain step by step?
     - EXCEL : using APACHE POI
 
 Can you explain BDD steps?
+BDD is an extention of TDD, I would create feature files and I would create scenarios and then I would generate my snippets and I would implement my step definitions one by one, then do it all over again
+
 
 -----
 
